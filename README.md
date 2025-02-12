@@ -1,7 +1,5 @@
-# workindia-irctc-api
+# workindia-irctc-api documentation
 Repository containing solution of assignment for SDE Internship Program at WorkIndia
-
-# IRCTC API Documentation
 
 ## Overview
 This API provides functionalities for user authentication, train operations, and admin-level management with enhanced security using API keys. The API also ensures transaction safety with PostgreSQL.
@@ -12,8 +10,6 @@ This API provides functionalities for user authentication, train operations, and
 - **Authentication:** JWT (JSON Web Tokens)
 - **Security:** API Key Protection for Admin Endpoints
 - **Concurrency Control:** Transactions & Row-Level Locking (`FOR UPDATE`)
-- **Load Balancing:** PM2 for multi-instance execution
-- **Hosting (Recommended):** Railway.app or AWS EC2
 
 ## Authentication
 - **JWT-based authentication for users**
