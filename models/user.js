@@ -1,22 +1,3 @@
-// import db from '../config/db'
-
-// export const createUserTable = () => {
-//     const query = `
-//         CREATE TABLE users (
-//             id SERIAL PRIMARY KEY,
-//             name VARCHAR(100),
-//             email VARCHAR(100) UNIQUE NOT NULL,
-//             password VARCHAR(255) NOT NULL,
-//             role VARCHAR(10) CHECK (role IN ('admin', 'user')) DEFAULT 'user'
-//         );
-//     `;
-
-//     db.query(query, (err) =>{
-//         if(err) throw err;
-//         console.log("User Table Created!!");
-//     });
-// }
-
 import pool from "../config/db.js";
 
 export const createUserTable = async () => {

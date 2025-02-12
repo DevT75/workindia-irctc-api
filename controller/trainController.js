@@ -111,18 +111,6 @@ export const bookTrain = async (req, res) => {
 
         res.status(200).json({ "message": "Seat booked successfully", trainId, seat });
 
-        // const q = `UPDATE trains SET available_seats = available_seats - 1 WHERE id = $1 AND available_seats > 0 RETURNING id`;
-
-        // const { rowCount } = await pool.query(q, [trainId]);
-
-        // if (rowCount === 0) {
-        //     return res.status(400).json({ "message": "No available seats!!" });
-        // }
-
-        // const bq = `INSERT INTO bookings ( user_id, train_id, seat_number ) VALUES ( $1, $2, (SELECT total_seats - available_seats FROM trains WHERE id = $2))`;
-        // await pool.query(bq, [userId, trainId]);
-        // res.status(200).json({ "message": "Seat booked successfully!!" });
-
     } catch (error) {
         await client.query("ROLLBACK");
         res.status(400).json({ "message": "Error booking seats!!" });

@@ -25,21 +25,6 @@ export const registerUser = async (req, res) => {
         res.status(500).json({ message: "Error registering user" });
     }
 
-    // const emq = 'SELECT FROM users WHERE email = ?';
-
-    // db.query(emq, [email], (e, results) =>{
-
-    //     if (e) return res.status(500).json({ message: "Database error" });
-    //     if (results.length > 0) {
-    //         return res.status(400).json({ message: "Email already exists!!" });
-    //     }
-
-    //     const query = `INSERT INTO users (name, email, password, role) VALUES (? , ?, ?, ?)`;
-    //     db.query(query, [name, email, hashedPassword, role], (err, r) => {
-    //         if(err) res.status(500).json({ "message": "Error registering user" });
-    //         res.status(200).json({ "message": "User Registered Successfully!!" });
-    //     });
-    // });
 }
 
 export const loginUser = async (req, res) => {
