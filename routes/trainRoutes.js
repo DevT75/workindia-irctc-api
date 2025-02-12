@@ -9,6 +9,6 @@ router.post('/add', verifyAdmin, addTrain);
 router.get('/availability', verifyToken ,getTrains);
 router.post('/book/:trainId', verifyToken, bookTrain);
 router.get('/bookings', verifyToken, getUserBookings);
-router.post('/update/:trainId', verifyAdmin, updateTrainDetails);
+router.put('/update/:trainId', verifyAdmin, updateTrainDetails);
 
 export default router;

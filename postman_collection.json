@@ -1,0 +1,85 @@
+{
+    "info": {
+        "name": "IRCTC API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "User Authentication",
+            "item": [
+                {
+                    "name": "Register User",
+                    "request": {
+                        "method": "POST",
+                        "header": [{"key": "Content-Type", "value": "application/json"}],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\": \"John Doe\", \"email\": \"john@example.com\", \"password\": \"password123\"}"
+                        },
+                        "url": {"raw": "{{base_url}}/api/users/register"}
+                    }
+                },
+                {
+                    "name": "Login User",
+                    "request": {
+                        "method": "POST",
+                        "header": [{"key": "Content-Type", "value": "application/json"}],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\": \"john@example.com\", \"password\": \"password123\"}"
+                        },
+                        "url": {"raw": "{{base_url}}/api/users/login"}
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Train Operations",
+            "item": [
+                {
+                    "name": "Get Available Trains (Public Access)",
+                    "request": {
+                        "method": "GET",
+                        "url": {"raw": "{{base_url}}/api/trains/availability?source=Delhi&destination=Mumbai"}
+                    }
+                },
+                {
+                    "name": "Book a Train (User Required)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {"key": "Authorization", "value": "Bearer {{user_token}}"},
+                            {"key": "Content-Type", "value": "application/json"}
+                        ],
+                        "url": {"raw": "{{base_url}}/api/trains/book/1"}
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Admin Operations",
+            "item": [
+                {
+                    "name": "Update Train Seats (Admin API Key Required)",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {"key": "x-api-key", "value": "{{admin_api_key}}"},
+                            {"key": "Content-Type", "value": "application/json"}
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"total_seats\": 200}"
+                        },
+                        "url": {"raw": "{{base_url}}/api/trains/update-seats/1"}
+                    }
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {"key": "base_url", "value": "http://localhost:5000"},
+        {"key": "user_token", "value": ""},
+        {"key": "admin_api_key", "value": "your-secure-admin-key"}
+    ]
+}
