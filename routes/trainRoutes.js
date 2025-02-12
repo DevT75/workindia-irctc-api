@@ -1,4 +1,4 @@
-import { getTrains, addTrain, bookTrain, getUserBookings } from "../controller/trainController.js";
+import { getTrains, addTrain, bookTrain, getUserBookings, updateTrainDetails } from "../controller/trainController.js";
 import { verifyAdmin, verifyToken } from "../middleware/auth.js";
 import express from 'express'
 
@@ -9,5 +9,6 @@ router.post('/add', verifyAdmin, addTrain);
 router.get('/availability', verifyToken ,getTrains);
 router.post('/book/:trainId', verifyToken, bookTrain);
 router.get('/bookings', verifyToken, getUserBookings);
+router.post('/update/:trainId', verifyAdmin, updateTrainDetails);
 
 export default router;
